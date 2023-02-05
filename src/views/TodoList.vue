@@ -9,6 +9,8 @@
     <ul>
       <li v-for="(todo, index) in todos" :key="index">
         {{ todo }}
+        <!-- クリックイベントを追加 -->
+        <button @click="removeTodo(index)">完了</button>
       </li>
     </ul>
   </div>
@@ -31,6 +33,10 @@ export default {
       this.todos.push(this.todo); 
       this.todo = "";
     },
+    // 削除メソッド
+    removeTodo(index){
+      this.todos.splice(index, 1);
+    }
   }
 }
 </script>
